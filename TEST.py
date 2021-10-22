@@ -1,7 +1,12 @@
 from fpdf import FPDF
+import os
 
-val = input("Enter your value: ")
-print(val)
+name = input("Enter the Company Name: ")
+print("Generating Your TEST Certificates......")
+print("Cetificates for", name, "are being Generated.")
+
+#path = 'temp'
+#os.mkdir(path)
 
 class PDF(FPDF):
 
@@ -20,5 +25,4 @@ class PDF(FPDF):
 pdf = PDF('P', 'mm', 'A4')
 
 pdf.add_page()
-
-pdf.output('test.pdf')
+pdf.output(name+'.pdf')

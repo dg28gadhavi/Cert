@@ -39,7 +39,7 @@ pdf = PDF('P', 'mm', 'A4')
 pdf.add_page()
 
 #Body
-pdf.set_font('helvetica', 'B',19)
+pdf.set_font('helvetica', 'B', 19)
 pdf.cell(180, 15, 'TEST & CALIBRATION CERTIFICATE', 0, True, 'R')
 
 pdf.output(name+'.pdf')

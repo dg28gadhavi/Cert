@@ -5,7 +5,7 @@ name = input("Enter the Company Name: ")
 print("Generating Your TEST Certificates......")
 print("Cetificates for", name, "are being Generated.")
 
-#path = 'temp'
+#Make and Change the Current Working Directory for the output file.
 os.mkdir(name)
 os.chdir(name)
 

@@ -42,4 +42,37 @@ pdf.add_page()
 pdf.set_font('helvetica', 'B', 19)
 pdf.cell(180, 15, 'TEST & CALIBRATION CERTIFICATE', 0, True, 'R')
 
+# Effective page width, or just epw
+epw = pdf.w - 2*pdf.l_margin
+ 
+# Set column width to 1/4 of effective page width to distribute content 
+# evenly across table and page
+col_width = epw/4
+ 
+# Since we do not need to draw lines anymore, there is no need to separate
+# headers from data matrix.
+ 
+data = [['First name','Last name','Age','City'],
+['Jules','Smith',34,'San Juan'],
+['Mary','Ramos',45,'Orlando'],[
+'Carlson','Banks',19,'Los Angeles']
+]
+ 
+# Document title centered, 'B'old, 14 pt
+pdf.set_font('Times','B',14.0) 
+pdf.cell(epw, 20.0, 'Demographic data', align='C')
+pdf.set_font('Times','',10.0) 
+pdf.ln(20)
+ 
+# Text height is the same as current font size
+th = pdf.font_size
+ 
+# Here we add more padding by passing 2*th as height
+for row in data:
+    for datum in row:
+        # Enter data in colums
+        pdf.cell(col_width, 2*th, str(datum), border=1)
+ 
+    pdf.ln(2*th)
+
 pdf.output(name+'.pdf')

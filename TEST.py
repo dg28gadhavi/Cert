@@ -1,5 +1,6 @@
 from fpdf import FPDF
 from datetime import datetime
+#import random
 import time
 import os
 
@@ -12,6 +13,8 @@ print("Cetificates for", name, "are being Generated.")
 time = datetime.today().strftime('%d-%m-%Y')
 time = str(time)
 print (time)
+
+#print(round(random.uniform(-0.5,5),1))
 
 #Make and Change the Current Working Directory for the output file.
 os.mkdir(name+"["+time+"]")
@@ -34,4 +37,9 @@ class PDF(FPDF):
 pdf = PDF('P', 'mm', 'A4')
 
 pdf.add_page()
+
+#Body
+pdf.set_font('helvetica', 'B',19)
+pdf.cell(180, 15, 'TEST & CALIBRATION CERTIFICATE', 0, True, 'R')
+
 pdf.output(name+'.pdf')

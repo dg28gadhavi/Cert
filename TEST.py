@@ -1,13 +1,21 @@
 from fpdf import FPDF
+from datetime import datetime
+import time
 import os
+
 
 name = input("Enter the Company Name: ")
 print("Generating Your TEST Certificates......")
 print("Cetificates for", name, "are being Generated.")
 
+#TimeStamp/DateStamp
+time = datetime.today().strftime('%d-%m-%Y')
+time = str(time)
+print (time)
+
 #Make and Change the Current Working Directory for the output file.
-os.mkdir(name)
-os.chdir(name)
+os.mkdir(name+"["+time+"]")
+os.chdir(name+"["+time+"]")
 
 class PDF(FPDF):
 

@@ -41,7 +41,9 @@ class PDF(FPDF):
         head.image('../footer.jpg', 0, 192, 211)
 
 #Signature
-        head.image('../sign2.png', 5, 195, 70)
+        head.image('../sign4.png', 5, 194, 70)
+        head.image('../sign3.png', 145, 196, 50)
+        head.image('../stamp9.png', 55, 180, 100)
 
 pdf = PDF('P', 'mm', 'A4')
 

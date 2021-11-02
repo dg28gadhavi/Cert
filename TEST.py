@@ -36,9 +36,9 @@ class PDF(FPDF):
         head.image('../side.png', 190, 0, 20)
 
 #Footer
-    def footer(foot):
-        foot.set_y(-10)
-        foot.image('../footer.jpg', 0, 192, 211)
+#    def footer(foot):
+#       foot.set_y(-10)
+        head.image('../footer.jpg', 0, 192, 211)
 
 pdf = PDF('P', 'mm', 'A4')
 
@@ -105,8 +105,8 @@ col_width = epw/2
 # headers from data matrix.
 
 data = [['Identification No.: ','Date of Issue: '],
-['Date of Calibration: ','Suggested Due Date: '],
-        ['Make: ' ,'Range: '],
+['Date of Calibration: '+time,'Suggested Due Date: '],
+        ['Make: AAVAD' ,'Range: '],
         ['Environment Condition: ' ,'Client Reference: ']
         
 ]
@@ -130,15 +130,14 @@ epw = pdf.w - 2*pdf.l_margin
 
 # Set column width to 1/4 of effective page width to distribute content 
 # evenly across table and page
-col_width = epw/1
+col_width = epw/2
 
 # Since we do not need to draw lines anymore, there is no need to separate
 # headers from data matrix.
 
-data = [['Identification No.: ']
+data = [['Standard Reference Used: ',''],
         
 ]
-
 
 
 # Text height is the same as current font size
@@ -151,6 +150,124 @@ for row in data:
         pdf.cell(col_width, 8*th, str(datum), border=1)
 
     pdf.ln(8*th)
+
+#Start4
+# Effective page width, or just epw
+epw = pdf.w - 2*pdf.l_margin
+
+# Set column width to 1/4 of effective page width to distribute content 
+# evenly across table and page
+col_width = epw/1
+
+# Since we do not need to draw lines anymore, there is no need to separate
+# headers from data matrix.
+
+data = [['The Uncertainity of measurement is for a confidence probability of not less than 95%.'],
+        
+]
+
+
+# Text height is the same as current font size
+th = pdf.font_size
+
+# Here we add more padding by passing 2*th as height
+for row in data:
+    for datum in row:
+        # Enter data in colums
+        pdf.cell(col_width, 2*th, str(datum), border=1)
+
+    pdf.ln(2*th)
+    
+#Start5
+# Effective page width, or just epw
+epw = pdf.w - 2*pdf.l_margin
+
+# Set column width to 1/4 of effective page width to distribute content 
+# evenly across table and page
+col_width = epw/1
+
+# Since we do not need to draw lines anymore, there is no need to separate
+# headers from data matrix.
+
+data = [['Result of Calibration: '],
+        
+]
+
+
+# Text height is the same as current font size
+th = pdf.font_size
+
+# Here we add more padding by passing 2*th as height
+for row in data:
+    for datum in row:
+        # Enter data in colums
+        pdf.cell(col_width, 2*th, str(datum), border=1)
+
+    pdf.ln(2*th)
+
+#Start6
+# Effective page width, or just epw
+epw = pdf.w - 2*pdf.l_margin
+
+# Set column width to 1/4 of effective page width to distribute content 
+# evenly across table and page
+col_width = epw/3
+
+# Since we do not need to draw lines anymore, there is no need to separate
+# headers from data matrix.
+
+data = [['Master Sensor','Temperature Sensor','Error']
+        
+]
+
+
+# Text height is the same as current font size
+th = pdf.font_size
+
+# Here we add more padding by passing 2*th as height
+for row in data:
+    for datum in row:
+        # Enter data in colums
+        pdf.cell(col_width, 4*th, str(datum), border=1)
+
+    pdf.ln(4*th)
+
+#Start7
+# Effective page width, or just epw
+epw = pdf.w - 2*pdf.l_margin
+
+# Set column width to 1/4 of effective page width to distribute content 
+# evenly across table and page
+col_width = epw/3
+
+# Since we do not need to draw lines anymore, there is no need to separate
+# headers from data matrix.
+
+data = [['100','101','1'],
+        ['200','201','1'],
+        ['400','401','1'],
+        ['600','602','2'],
+        ['800','802','2'],
+        ['1000','1003','3']
+        
+]
+
+
+# Text height is the same as current font size
+th = pdf.font_size
+
+# Here we add more padding by passing 2*th as height
+for row in data:
+    for datum in row:
+        # Enter data in colums
+        pdf.cell(col_width, 2*th, str(datum), border=1)
+
+    pdf.ln(2*th)
+
+
+
+
+
 
 
 pdf.output(name+'.pdf')

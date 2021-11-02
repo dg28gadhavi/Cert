@@ -40,6 +40,9 @@ class PDF(FPDF):
 #       foot.set_y(-10)
         head.image('../footer.jpg', 0, 192, 211)
 
+#Signature
+        head.image('../sign2.png', 5, 195, 70)
+
 pdf = PDF('P', 'mm', 'A4')
 
 pdf.add_page()
@@ -265,6 +268,9 @@ for row in data:
     pdf.ln(2*th)
 
 
+#Signature
+#pdf.set_font('helvetica', '', 10)
+#pdf.cell(100, 83, 'TES')
 
 
 
